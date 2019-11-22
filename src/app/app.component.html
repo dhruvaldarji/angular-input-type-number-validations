@@ -1,0 +1,33 @@
+<hello name="{{ name }}"></hello>
+
+<hr/>
+
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input
+      matInput
+      type="number"
+      placeholder="Number"
+      [min]="minVal"
+      [max]="maxVal"
+      [formControl]="numberFormControl"
+    />
+    <mat-error *ngIf="numberFormControl.hasError('required')">
+      This field is <strong>required</strong>.
+    </mat-error>
+    <mat-error *ngIf="numberFormControl.hasError('min')">
+      Please enter a number greater than {{minVal}}.
+    </mat-error>
+    <mat-error *ngIf="numberFormControl.hasError('max')">
+      Please enter a number less than {{maxVal}}.
+    </mat-error>
+  </mat-form-field>
+</form>
+
+<hr/>
+
+<div class="example-form-field">
+  <label>Value: <strong>{{ (value | async) || 'No Value' }}</strong></label>
+</div>
+
+<hr/>
